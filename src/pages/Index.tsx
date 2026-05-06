@@ -1,16 +1,49 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect } from "react";
+import Navbar from "@/components/Navbar.jsx";
+import Hero from "@/components/Hero.jsx";
+import About from "@/components/About.jsx";
+import Skills from "@/components/Skills.jsx";
+import Projects from "@/components/Projects.jsx";
+import Journey from "@/components/Journey.jsx";
+import Testimonial from "@/components/Testimonial.jsx";
+import Contact from "@/components/Contact.jsx";
+import Footer from "@/components/Footer.jsx";
+import "@/portfolio.css";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  useEffect(() => {
+    document.title = "Muhammad Afif Hikam — Portfolio";
+    document.body.classList.add("portfolio-body");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    return () => {
+      document.body.classList.remove("portfolio-body");
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="portfolio">
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Journey />
+      <Testimonial />
+      <Contact />
+      <Footer />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
