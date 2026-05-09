@@ -4,6 +4,7 @@ import Hero from "@/components/Hero.jsx";
 import About from "@/components/About.jsx";
 import Skills from "@/components/Skills.jsx";
 import Projects from "@/components/Projects.jsx";
+import Gallery from "@/components/Gallery.jsx";
 import Journey from "@/components/Journey.jsx";
 import Testimonial from "@/components/Testimonial.jsx";
 import Contact from "@/components/Contact.jsx";
@@ -38,6 +39,7 @@ const Index = () => {
       <About />
       <Skills />
       <Projects />
+      <Gallery />
       <Journey />
       <Testimonial />
       <Contact />
